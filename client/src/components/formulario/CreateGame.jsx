@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import {Link} from 'react-router-dom'
 import { useHistory } from "react-router-dom";
 import { getGenres, creategame, getPlatforms } from "../../redux/actions";
 
@@ -52,7 +51,6 @@ export default function GameCreate(){
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const games = useSelector((state) => state.allVideogames)
     const allgenres= useSelector((state) => state.allGenres)
     const allPlataformas = useSelector((state) => state.allPlatforms)
     const [errors, setErrors] = useState([""]);
@@ -253,12 +251,6 @@ function handleSubmit(e) {
                             ))}            
 
                     </div>
-             
-
-
-        <Link to = '/home'>
-        <button> Volver a la pagina principal </button>
-        </Link>
 
         </div>
     )

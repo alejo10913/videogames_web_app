@@ -6,6 +6,7 @@ import GameDetail from './components/GameDetail/GameDetail';
 import NavBar from './components/Navbar/Navbar';
 import GameCreate from './components/formulario/CreateGame';
 import Favorite from './components/favoritos/Favorite';
+import ResultsSearch from './components/ResultsSearch/ResultsSearch';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route exact path= '/home/game' component={GameCreate} />
       <Route exact path= '/home/favoritos' component={Favorite} />
       <Route exact path= '/home/home/:id' component={GameDetail} />
-
+      <Route exact path= '/home/resultados' component={ResultsSearch} />
     </div>
     </BrowserRouter>
   );

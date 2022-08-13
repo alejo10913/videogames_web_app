@@ -36,10 +36,18 @@ function rootReducer(state = initialState, action) {
         detail: [],
       };
 
+      case "CLEAN_RESULT":
+        return {
+          ...state,
+          results: [],
+        };
+
+
+
     case "GET_NAME_GAME":
       return {
         ...state,
-        allVideoGames: action.payload,
+        results: action.payload,
       };
 
     case "GET_GENRES":
@@ -124,14 +132,18 @@ function rootReducer(state = initialState, action) {
         ...state,
         allVideoGames: sortedRating,
       };
-
+      //if(input.platforms.includes(e.target.value))
 
       case "ADD_FAVORITES":
+        let fav = state.allVideoGames.find((game) => game.id === action.payload)
+        console.log(fav)
+
+  
         return{
           ...state,
-          favorites: [...state.favorites, action.payload]
+          favorites: [...state.favorites, fav]
         }
-      
+    
         case "REMOVE_FAVORITES":
           return{
             ...state,

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import {getGenres, getVideoGames}  from '../../redux/actions';
 import CardGame from "../CardGame/CardGame";
-import Searchbar from "../Searchbar/Search";
+//import Searchbar from "../Searchbar/Search";
 import Paginado from '../paginado/paginado';
 import Filters from "../Filters/filters";
 
@@ -41,9 +41,7 @@ export default function Home(){
     return(
         <div>
 
-            <Searchbar
-            
-            />
+    
 
             <button onClick={e => {handleclick(e)}}> todos los videojuegos </button>
             

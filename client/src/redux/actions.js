@@ -46,6 +46,13 @@ export function cleanDetail(payload) {
   };
 }
 
+export function cleanresults(payload) {
+  return {
+    type: "CLEAN_RESULT",
+    payload,
+  };
+}
+
 export function getNameGame(name) {
   return async function (dispatch) {
     try {

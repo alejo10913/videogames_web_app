@@ -20,26 +20,12 @@ export default function GameDetail(){
     }, [params.id] )
 
 
-    // useEffect(() => {
-    
-    //   return () => {
-    //     dispatch(cleanDetail())
-    //   }
-    // }, [])
-    
-   
-    
-
-
-
     const myGame = useSelector((state) => state.detail)
 
     return(
 
         <div>
-        
     
-        
         {
             myGame.length? myGame.map(gam =>{
                 return(
