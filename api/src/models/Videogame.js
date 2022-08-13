@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     released: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATEONLY,
       allowNull: false
     },
     rating: {
@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     platforms: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     },
     image:{
@@ -44,9 +44,3 @@ module.exports = (sequelize) => {
 };
 
 
-// ID: * No puede ser un ID de un videojuego ya existente en la API rawg
-// Nombre *
-// Descripción *
-// Fecha de lanzamiento
-// Rating
-// Plataformas *
