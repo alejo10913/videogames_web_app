@@ -43,24 +43,35 @@ router.get('/name', async(req, res, next) => {
     const {name} = req.query
     try {
         let gameByName = await byName(name)
-         gameByName.length?
+        gameByName.length?
          res.status(200).send(gameByName):
          res.status(404).send("no hay juegos con ese nombre")
-        
-        
-    } catch (error) {
-        next (error)
-    }
-})
-
-
-
-
-router.get('/:id', async(req, res, next) =>{
-            const {id} = req.params
+         
+         
+        } catch (error) {
+            next (error)
+        }
+    })
+    
+router.delete('/:id', async (req, res) => {
+        try {
+            const { id } = req.params;
+            await Videogame.destroy({
+                where: {id: id}
+            })
+            res.send("Juego borrado")
+        } catch (error) {
+            res.send("error")
+        }
+    })
+    
+    
+    
+    router.get('/:id', async(req, res, next) =>{
+        const {id} = req.params
     try {
         const gameID = await getGameByID(id)
-
+        
             gameID?
             res.status(200).json(gameID):
             res.status(404).send('no hay juegos con ese id')
@@ -98,6 +109,19 @@ router.post('/', async(req, res, next) =>{
     }
 })
 
+// exports.deleteForId = async(req,res,next)=>{
+//     try {
+//         const {id} =req.params
+//         await Videogame.destroy({
+//             where:{
+//                 id,
+//             }
 
+//         })
+//         res.send({info:"Game deleted!!"})
+//     } catch (error) {
+//         next({ error:"Can`t delete game"})
+//     }
+// }
 
 module.exports = router

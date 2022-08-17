@@ -7,7 +7,7 @@ export function getVideoGames() {
       type: "GET_VIDEOGAMES",
       payload: games.data,
     });
-  };
+  }
 }
 
 export function videogameDetail(id) {
@@ -135,3 +135,13 @@ export function orderByRating(payload){
         payload
     }
 }
+
+export function  DeleteGame(id){
+  return async function (dispatch){
+      const res = axios.delete(`http://localhost:3001/videogames/${id}`)
+      return dispatch ({
+          type:"DELETE_GAME",
+          payload:res.data
+
+})
+}}

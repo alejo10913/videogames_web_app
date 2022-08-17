@@ -1,15 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom";
 import { cleanresults, getNameGame } from "../../redux/actions";
-
+import './searchbar.css'
 
 
 export default function Searchbar(){
 const dispatch = useDispatch()
 const [name, setName] = useState('')
-const errores = useSelector((state) => state.errors)
 const history = useHistory()
 
 function handleInputChange(e){
@@ -23,14 +22,15 @@ function handleSubmit(e){
     }
     else{
         dispatch(getNameGame(name))
-        dispatch(cleanresults())
+        dispatch(cleanresults)
+        setName("")
+        history.push('/home/resultados')
     }
-    history.push('/home/resultados')
 }
 
 
     return(
-        <div>
+        <div className="search">
             
 
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -41,7 +41,7 @@ function handleSubmit(e){
             value = {name}            
             />
 
-            <button onClick={(e) => handleSubmit(e)}> Buscar</button>
+            <button className="tosearch" onClick={(e) => handleSubmit(e)}> Buscar</button>
             </form>
 
         </div>

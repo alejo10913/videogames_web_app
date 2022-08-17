@@ -101,6 +101,7 @@ function rootReducer(state = initialState, action) {
               if (b.name > a.name) {
                 return 1;
               }
+              return 0;
             });
       return {
         ...state,
@@ -126,6 +127,7 @@ function rootReducer(state = initialState, action) {
               if (b.rating > a.rating) {
                 return 1;
               }
+              return 0
             });
             console.log(sortedRating)
       return {
@@ -134,21 +136,59 @@ function rootReducer(state = initialState, action) {
       };
       //if(input.platforms.includes(e.target.value))
 
-      case "ADD_FAVORITES":
-        let fav = state.allVideoGames.find((game) => game.id === action.payload)
-        console.log(fav)
+      // case "ADD_FAVORITES":
+      //   let allfav = [...state.allVideoGames, ...state.results]
+      //   let fav = allfav.find((game) => game.id === action.payload)
+      //   let newFav = [...state.favorites, fav]
+      //   newFav = [...new Set(newFav)]
+      //   return{
+      //     ...state,
+      //     favorites:  [...newFav]
+      //   }
 
-  
+      case "ADD_FAVORITES":
+      let allfav = [...state.allVideoGames, ...state.results]
+      let fav = allfav.find((game) => game.id === action.payload)
+
+      if(state.favorites.includes(fav)){
+        console.log("hola")
+        return{
+          ...state
+        }
+      }
+      else{
+        console.log(state.favorites)
         return{
           ...state,
           favorites: [...state.favorites, fav]
+        
         }
+       
+      }
+        //let estado = state.favorites
+        //if(!Object.keys(estado).includes(action.payload)){
+        //if(!estado.includes(action.payload)){
+    
+        // if(state.favorites.includes(fav)){
+        //   return{
+        //     ...state,
+        //     favorites: [...state.favorites]
+        //   }
+        // }
+        // else if ((!estado.includes(fav)))
+
+
     
         case "REMOVE_FAVORITES":
           return{
             ...state,
             favorites: state.favorites.filter((game) => game.id !== action.payload)
           }
+
+          case "DELETE_GAME":
+            return{
+            ...state
+            }  
 
     default:
       return state;

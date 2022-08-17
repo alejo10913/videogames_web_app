@@ -1,0 +1,18 @@
+.contenedorsearch{
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: center;
+}
+
+.contenedorsearch .name{
+  color: #ffd819;
+}
+
+
+.nobusqueda{
+  color:  #ffd819;
+} 
+
+.title{
+    color: white;
+}

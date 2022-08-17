@@ -38,7 +38,7 @@ export default function Paginado ({gamesPerPage, allvideogames, currentPage, set
     const handlePrevbtn = () =>{
         setCurrentPage(currentPage - 1);
 
-        if((currentPage -1) % pageNumberLimit == 0){
+        if((currentPage -1) % pageNumberLimit === 0){
             setMaxPageNumberList(maxPageNumberList - pageNumberLimit);
             setMinPageNumberList(minPageNumberList - pageNumberLimit);
         }
@@ -47,7 +47,7 @@ export default function Paginado ({gamesPerPage, allvideogames, currentPage, set
     const renderPagenumbers = pageNumbers.map((number) => {
         if(number < maxPageNumberList + 1 && number > minPageNumberList){
             return(
-                <li className="numeros">
+                <li className="numeros" key={number}>
                 <button key={number} id={number} onClick= {(e) => handleclick(e)} style = {currentPage === number? {backgroundColor: "red", color: "white", border: "black , 16px" }: {}}> {number}</button>
                  
                 </li>
@@ -58,10 +58,10 @@ export default function Paginado ({gamesPerPage, allvideogames, currentPage, set
   
 
     return(
-        <div>
+        <div >
             <ul>
                 <li>
-                    <button
+                    <button className="prev"
                     onClick={handlePrevbtn}
                     disabled= {(currentPage === pageNumbers[0] || !pageNumbers.length) ? true: false }
                     >
@@ -69,12 +69,12 @@ export default function Paginado ({gamesPerPage, allvideogames, currentPage, set
                     </button>
                 
                  </li>
-                 
+                  
              {renderPagenumbers }            
                
 
                 <li>
-                    <button
+                    <button className="next"
                     onClick={handleNextbtn}
                     disabled={(currentPage === pageNumbers[pageNumbers.length -1] || !pageNumbers.length)? true : false}
                     >

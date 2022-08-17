@@ -1,0 +1,125 @@
+.errorname{
+    color: red
+}
+
+.errorrating{
+    color: red;
+}
+
+.errorreleased {
+    color: red;
+}
+
+.errorimagen{
+    color: red;
+}
+
+.errordescription {
+    color: red
+}
+
+.titlecreated{
+ color: #ffd819;
+}
+
+.namefor{
+    color:  #ffd819;
+}
+
+.desfor{
+    color: #ffd819;
+}
+
+.lanzamiento{
+    color:  #ffd819;
+}
+
+.rating{
+    color:  #ffd819;
+}
+
+.imagen{
+    color: #ffd819;
+}
+
+.generossel{
+    color: #ffd819;
+}
+
+.plataformassel{
+    color: #ffd819;
+}
+
+.gen{
+    color: white;
+}
+
+.plat{
+    color: white;
+}
+ .seleccionados{
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around
+  
+ }
+
+ .errorplat{
+    color: red;
+ }
+
+ .errorgen{
+    color: red;
+ }
+
+ .resetp{
+    min-width: 130px;
+   height: 40px;
+   color: #fff;
+   padding: 5px 10px;
+   font-weight: bold;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   position: relative;
+   display: inline-block;
+   outline: none;
+   border-radius: 5px;
+   border: none;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+   background: #d90429;
+ }
+.resetp {
+   background-color: #ef233c;
+ }
+ .resetp {
+   top: 2px;
+ }
+
+
+
+
+ .resetg{
+         min-width: 130px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+        background: #d90429;
+      }
+     .resetg {
+        background-color: #ef233c;
+      }
+      .resetg {
+        top: 2px;
+      }
+
+
+      

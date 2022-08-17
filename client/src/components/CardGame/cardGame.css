@@ -1,0 +1,90 @@
+
+.imagenes img{
+        height: 200px;
+        width: 200px;
+        ;
+}
+
+.cardcontainer{
+    height: 400px;
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    align-items:center;     
+    background-color: yellow;
+    border-radius: 20px;
+}    
+ .cardcontainer .nombre{
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+ }
+.botones {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-left: 15px;
+}
+.botonDetalle {
+        width: 75px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        overflow: hidden;
+        border-radius: 5px;
+        border: none;
+        background-color: #1b25e8
+      }
+      .botonDetalle:hover {
+        border-radius: 5px;
+        padding-right: 24px;
+        padding-left:8px;
+      }
+      /* .botonDetalle:hover:after {
+        opacity: 1;
+        right: 10px;
+      } */
+     
+.botonDetalle:hover {
+    background-color: #4CAF50; /* Green */
+    color: rgb(65, 74, 198);
+}
+
+
+.botonfav {
+    width: 75px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    overflow: hidden;
+    border-radius: 5px;
+    border: none;
+    background-color: #ef233c;
+    margin-right: 5px;
+    
+  }
+  .botonfav {
+    border-radius: 5px;
+    padding-right: 24px;
+    padding-left:8px;
+  }
+  .botonfav{
+    opacity: 1;
+    right: 10px;
+  }
+  .botonfav:hover {
+    background-color: #4CAF50; /* Green */
+    color: rgb(65, 74, 198);
+}

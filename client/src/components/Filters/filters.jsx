@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { filterCreated, orderbygenre, orderByName, orderByRating } from "../../redux/actions";
-
+import { useDispatch } from "react-redux";
+import { filterCreated, orderbygenre, orderByName, orderByRating, getVideoGames} from "../../redux/actions";
+import '../Filters/filters.css'
 
 export default function Filters({setCurrentPage, allGenres, setOrden}){
  const dispatch = useDispatch()
@@ -29,10 +29,17 @@ function handleSortrating(e){
         setOrden(`ordenado ${e.target.value}`)
     };
 
+function handleclick(e){
+        e.preventDefault();
+        dispatch(getVideoGames())
+}
+
 return(
 
      <div>
 
+    
+<button className="allgames" onClick={e => {handleclick(e)}}> Limpiar filtros </button>
 {/* -------------------------------- api o DB----------------------- */}
             
     <select onChange={e => {handlefilterCreated(e)}} defaultValue = "">
@@ -45,7 +52,7 @@ return(
     <select onChange={ (e) =>handleGenres(e)}  defaultValue ="">
         <option value="" disabled>Filtrar por generos</option>
         {allGenres?.map((gen)=>(
-        <option value={gen.name}>{gen.name}</option>
+        <option key={gen.id} value={gen.name}>{gen.name}  </option>
      ))}
     </select>
 {/* -------------------------------- orden alfabetico----------------------- */}

@@ -1,0 +1,110 @@
+.titlefav{
+  color: #ffd819;
+}
+
+.namefav{
+  color: black;
+}
+
+.pgen{
+  color: black;
+}
+
+.buscandofav{
+  color: white;
+  
+}
+
+
+.detalle{
+        width: 75px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        overflow: hidden;
+        border-radius: 5px;
+        border: none;
+        background-color: #1b25e8
+      }
+      .detalle:hover {
+        border-radius: 5px;
+        padding-right: 24px;
+        padding-left:8px;
+      }
+      .detalle:hover {
+        background-color: #4CAF50; /* Green */
+        color: rgb(65, 74, 198);
+    }
+    .detalle:hover {
+    background-color: #4CAF50; /* Green */
+    color: rgb(65, 74, 198);
+}
+
+.delete{
+        width: 75px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        overflow: hidden;
+        border-radius: 5px;
+        border: none;
+        background-color: #ef233c;
+        margin-right: 5px;
+        
+      }
+      .delete {
+        border-radius: 5px;
+        padding-right: 24px;
+        padding-left:8px;
+      }
+      .delete{
+        opacity: 1;
+        right: 10px;
+      }
+      .delete:hover {
+        background-color: #4CAF50; /* Green */
+        color: rgb(65, 74, 198);
+    }
+
+.botonesfav{
+    display: flex;
+    flex-direction: initial;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.contenedor{
+  
+    
+    align-items: center;
+    padding: 25px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.contenedor .contendorfav{
+
+  background-color: yellow;
+  border-radius: 20px;
+  height: 400px;
+  width: 200px;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20pxpx;
+  margin-bottom: 20px;
+
+}

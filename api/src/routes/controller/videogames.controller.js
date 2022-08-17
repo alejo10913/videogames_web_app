@@ -153,7 +153,8 @@ const getGameByID = async(id) => {
                     rating: game.rating,
                     platforms: game.platforms,
                     genres: game.genres.map(gen => gen.name),
-                    description: game.description
+                    description: game.description,
+                    createdInDb: game.createdInDb
                 }
             })
             return game;
@@ -168,7 +169,8 @@ const getGameByID = async(id) => {
                 platforms: apiDataId.data.parent_platforms.map(plat => plat.platform.name),
                 genres: apiDataId.data.genres.map(gen => gen.name),
                 released: apiDataId.data.released,
-                rating: apiDataId.data.rating
+                rating: apiDataId.data.rating,
+                createdInDb: false
             });
             gameapi.push(gameId)
             return gameapi
