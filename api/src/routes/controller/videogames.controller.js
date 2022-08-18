@@ -205,3 +205,55 @@ const getAllPlatforms = async () => {
 
 
 module.exports = {getAllInfo, getGameByID, byName, getAllPlatforms}
+
+
+
+
+
+
+// if(id.length > 10 ){
+
+//     Videogame.findByPk(id, { include: Genre })
+
+        //.then((response)=>{
+
+//         gameDb = {
+//             id:response.id,
+//             name:response.name,
+//             description:response.description,
+//             released:response.released,
+//             rating: response.rating,
+//             platforms: response.platforms,
+//             createdInDb:response.createdInDb,
+//             image: response.image,
+//             genres: response.genres.map(el => el.name),
+
+
+//         };
+//         res.send(gameDb)
+//     })
+// }
+
+//     else{
+//      //probar el await???
+
+
+
+//         axios.get(`https://api.rawg.io/api/games/${id}?key=${YOUR_API_KEY}`)
+//         .then((response)=>{
+//         resApiForId ={
+//             id:response.data.id,
+//             name:response.data.name,
+//             description:response.data.description,
+//             released:response.data.released,
+//             rating: response.data.rating,
+//             platforms: response.data.platforms.map(el => el.platform.name),
+//             image: response.data.background_image,
+//             genres: response.data.genres.map(el => el.name),
+//         }
+
+//         res.send(resApiForId)
+//         })
+
+//         }
+// }

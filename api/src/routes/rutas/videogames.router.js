@@ -115,3 +115,29 @@ router.post('/', async(req, res, next) =>{
 
 
 module.exports = router
+
+// router.put('/:id', async (req, res, next) => {
+//     const {id} = req.params;
+
+//     const { name, description, released, rating, image } = req.body
+//     try {
+//         let game = await   Videogame.update({
+//             name,
+//             description,
+//             released,
+//             rating,
+//             image,
+//         }, 
+//         {
+//             where: {
+//                 id: id
+//             }
+//         })
+//         const updateGame = await Videogame.findByPk( id )
+
+//         res.status(200).json({ data: updateGame })
+
+//           } catch (error) {
+//          next(error);
+//            }
+//         })
