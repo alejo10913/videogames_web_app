@@ -1,5 +1,7 @@
 import axios from "axios";
 
+
+//------------------------get videogames---------------------------------
 export function getVideoGames() {
   return async function (dispatch) {
     var games = await axios.get("http://localhost:3001/videogames");
@@ -10,6 +12,7 @@ export function getVideoGames() {
   }
 }
 
+//-----------------------get videogames detail ----------------------------
 export function videogameDetail(id) {
   return async function (dispatch) {
     try {
@@ -24,6 +27,7 @@ export function videogameDetail(id) {
   };
 }
 
+//---------------------añadir a favoritos----------------------------------
 export function addFavorites(payload){
   return {
     type: "ADD_FAVORITES",
@@ -32,6 +36,7 @@ export function addFavorites(payload){
   }
 }
 
+//----------------------remover favoritos----------------------------------------
 export function removeFavorites(id){
   return{
     type: "REMOVE_FAVORITES",
@@ -39,6 +44,7 @@ export function removeFavorites(id){
   }
 }
 
+//----------------------limpiar el detalle------------------------------------
 export function cleanDetail(payload) {
   return {
     type: "CLEAN_DETAIL",
@@ -46,6 +52,7 @@ export function cleanDetail(payload) {
   };
 }
 
+//----------------------limpiar resultados-----------------------------------
 export function cleanresults(payload) {
   return {
     type: "CLEAN_RESULT",
@@ -53,6 +60,8 @@ export function cleanresults(payload) {
   };
 }
 
+
+//-----------------------obtener juego por nombre-----------------------------
 export function getNameGame(name) {
   return async function (dispatch) {
     try {
@@ -72,6 +81,7 @@ export function getNameGame(name) {
   };
 }
 
+//---------------------------obtener generos--------------------------------
 export function getGenres() {
   return async function (dispatch) {
       let genres = await axios.get("http://localhost:3001/genres",)
@@ -84,6 +94,7 @@ export function getGenres() {
   };
 }
 
+//----------------------------obtener plataformas----------------------------
 export function getPlatforms() {
   return async function (dispatch) {
     try {
@@ -100,6 +111,7 @@ export function getPlatforms() {
   };
 }
 
+//------------------------------crear videojuego-------------------------------
 export function creategame(data) {
   return async function () {
     const creategame = await axios.post(
@@ -109,6 +121,7 @@ export function creategame(data) {
   };
 }
 
+//-----------------------------filtro base datos o API----------------------
 export function filterCreated(payload) {
   return {
     type: "FILTER_CREATED",
@@ -116,19 +129,22 @@ export function filterCreated(payload) {
   };
 }
 
+//----------------------------filtro por genero---------------------------
 export function orderbygenre(payload) {
   return {
     type: "ORDER_BY_GENRE",
     payload,
   };
 }
-
+//-----------------------------orden alfabetico---------------------------
 export function orderByName(payload){
     return{
         type: "ORDER_BY_NAME",
         payload
     }
 }
+
+//------------------------------orden por rating---------------------------
 export function orderByRating(payload){
     return{
         type: "ORDER_BY_RATING",
@@ -136,6 +152,7 @@ export function orderByRating(payload){
     }
 }
 
+//------------------------------borrar juego base de datos------------------
 export function  DeleteGame(id){
   return async function (dispatch){
       const res = axios.delete(`http://localhost:3001/videogames/${id}`)

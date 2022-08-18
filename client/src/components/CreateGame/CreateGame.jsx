@@ -16,7 +16,7 @@ function validate(input){
         errors.name= "Ingrese más de una letra , solo letras y números"
     } 
     
-    //------------------------------- rating
+    //------------------------------- rating--------------------------
     else if(!input.rating){
         errors.rating = "el rating es requerido"
     }else if(input.rating > 5){
@@ -26,35 +26,34 @@ function validate(input){
     } else if (!/^[0-9\s]+$/g.test(input.rating)){
         errors.rating = "el rating tiene que ser un numero"
     }
-    //---------------------------------imagen
+    //---------------------------------imagen-------------------------
    
     else if (!input.image){
         errors.image = "la imagen es requerida"
     }
-    //-------------------------------plataformas
+    //-------------------------------plataformas---------------------
 
     else if(arrayVacio(input.platforms)){
         errors.platforms = "las plataformas son requeridas"
     }
-       //---------------------------------generos
+       //---------------------------------generos--------------------
        else if(arrayVacio(input.genres)){
            errors.genres = "los generos son requeridos"
        }
    
-    //---------------------------------------descripcion 
+    //---------------------------------------descripcion-------------- 
 
 
     else if (!input.description){
         errors.description = "se requiere una descripcion"
     }
-    //-------------------------------lanzamiento
+    //-------------------------------lanzamiento---------------------
     else if (!input.released){
         errors.released = "fecha de lanzamiento es requerida"
     }
     
     return errors
 }
-
 
 export default function GameCreate(){
     
@@ -80,12 +79,7 @@ export default function GameCreate(){
         genres: [],
     });  
     
-    console.log(input.platforms)
-    console.log(input.genres)
-    console.log(input.genres.length)
-    console.log(input.platforms.length)
-    console.log(errors)
-    
+ //------------------------inputs  de texto------------------------   
     function handlechange(e){
         setInput({
             ...input,
@@ -98,7 +92,7 @@ export default function GameCreate(){
             })
         )
     }
-
+//------------------------------input de generos-------------------------
     function handleSelect(e){
         if(input.genres.includes(e.target.value)){
             alert("este genero ya esta incluido")
@@ -116,7 +110,7 @@ export default function GameCreate(){
         )
     }
 
-
+//----------------------------- input de plataformas------------------------
    function handleSelectPlat(e){
     if(input.platforms.includes(e.target.value)){
         alert("esta plataforma ya esta incluida")
@@ -133,7 +127,8 @@ export default function GameCreate(){
         })
     )
    }
-   
+
+   //-------------------------enviar informacion-------------------
    function handleSubmit(e) {
        e.preventDefault();
        dispatch(creategame(input));
@@ -151,8 +146,7 @@ export default function GameCreate(){
        history.push('/home')
    }
 
-   
-            
+//----------------------------delete generos seleccionados-------------------------            
     function handleDelete(){
         setInput({
             ...input,
@@ -166,7 +160,7 @@ export default function GameCreate(){
             )
     }
 
-    
+//----------------------------delete plataformas seleccionadas-----------------------    
     function handleDeletep(){
         setInput({
             ...input,
@@ -179,11 +173,7 @@ export default function GameCreate(){
             })
         )
     }
- 
-
-
-
-    
+     
     return(
 
         <div>

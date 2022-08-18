@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {getGenres, getPlatforms, getVideoGames}  from '../../redux/actions';
 import CardGame from "../CardGame/CardGame";
-//import Searchbar from "../Searchbar/Search";
 import Paginado from '../paginado/paginado';
 import Filters from "../Filters/filters";
 import './home.css'
@@ -19,7 +18,6 @@ export default function Home(){
     const allGenres = useSelector((state) => state.allGenres)
 
     const [orden, setOrden] = useState('')
-
     const [currentPage, setCurrentPage] = useState(1)
     const [gamesPerPage, setGamesPerPage] = useState(15)
     const indexOfLastGame = currentPage * gamesPerPage

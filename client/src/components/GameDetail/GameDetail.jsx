@@ -18,13 +18,13 @@ export default function GameDetail(){
         dispatch(videogameDetail(params.id));
         return () => { 
              dispatch(cleanDetail())
-
         }
     }, [params.id] )
 
+
     function handleDelete(id){
         function confirm(){
-            let resConfirm = window.confirm("are you sure by want to delete this game?")
+            let resConfirm = window.confirm("Estas seguro que quieres eliminar este juego?")
             if(resConfirm === true){
                 dispatch(DeleteGame(id))
             }
@@ -38,8 +38,6 @@ export default function GameDetail(){
     return(
 
         <div>
-    
-
         {
             myGame.length? myGame.map(gam =>{
                 return(

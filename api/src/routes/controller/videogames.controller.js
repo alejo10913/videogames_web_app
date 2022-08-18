@@ -27,6 +27,7 @@ const getApiVideogames = async() => {
                 })
                 apiUrl= apidata.data.next
                 }
+
                 return allVideogames
     } catch (error) {
         console.log(error)
@@ -80,6 +81,7 @@ const getAllInfo = async() => {
     }
 }
 
+//-------------------buscar por nombre---------------------------------
 
 const byName =  async(name) => {
  
@@ -135,6 +137,7 @@ const byName =  async(name) => {
 
 }
 
+//----------------------------buscar por id------------------------------------------
 
 const getGameByID = async(id) => {
     try {
@@ -180,7 +183,7 @@ const getGameByID = async(id) => {
     }
 }
 
-
+//-------------------------------- traer platafomrmas-------------------------------------------
 const getAllPlatforms = async () => {
  try {
     let platforms= await  getApiVideogames()

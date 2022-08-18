@@ -7,7 +7,7 @@ const axios = require ('axios')
 const router = Router()
 
 
-
+//------------------------todos los videojuegos-------------------------------
 
 router.get('/', async(req, res, next)=>{
     
@@ -24,6 +24,7 @@ router.get('/', async(req, res, next)=>{
     }
 })
 
+//-------------------------plataformas-----------------------------------------
 router.get('/plataformas', async(req, res, next)=>{
     
     try {
@@ -39,6 +40,8 @@ router.get('/plataformas', async(req, res, next)=>{
     }
 })
 
+
+//------------------------videojuegos por nombre----------------------------------
 router.get('/name', async(req, res, next) => {
     const {name} = req.query
     try {
@@ -53,6 +56,8 @@ router.get('/name', async(req, res, next) => {
         }
     })
     
+
+//---------------------------borrar juego----------------------------------------
 router.delete('/:id', async (req, res) => {
         try {
             const { id } = req.params;
@@ -66,8 +71,8 @@ router.delete('/:id', async (req, res) => {
     })
     
     
-    
-    router.get('/:id', async(req, res, next) =>{
+//---------------------------------busqueda por id ----------------------------------    
+router.get('/:id', async(req, res, next) =>{
         const {id} = req.params
     try {
         const gameID = await getGameByID(id)
@@ -81,7 +86,7 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-
+//---------------------crear juego--------------------------------------
 
 router.post('/', async(req, res, next) =>{
     const {name, description, released, rating, genres, platforms, image} = req.body
@@ -97,7 +102,6 @@ router.post('/', async(req, res, next) =>{
             image
         })
 
-
         const genresDb = await Genres.findAll({
             where: {name : genres}
         })
@@ -109,19 +113,5 @@ router.post('/', async(req, res, next) =>{
     }
 })
 
-// exports.deleteForId = async(req,res,next)=>{
-//     try {
-//         const {id} =req.params
-//         await Videogame.destroy({
-//             where:{
-//                 id,
-//             }
-
-//         })
-//         res.send({info:"Game deleted!!"})
-//     } catch (error) {
-//         next({ error:"Can`t delete game"})
-//     }
-// }
 
 module.exports = router

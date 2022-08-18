@@ -11,10 +11,13 @@ const dispatch = useDispatch()
 const [name, setName] = useState('')
 const history = useHistory()
 
+
+
 function handleInputChange(e){
     setName(e.target.value)
 }
 
+//-------------enviar informacion---------------------
 function handleSubmit(e){
     e.preventDefault()
     if(!name){

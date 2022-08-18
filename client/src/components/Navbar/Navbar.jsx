@@ -14,8 +14,6 @@ export default function NavBar(){
 
 
             <div className="botones">
-
-
                 <div className="searchbar">
                 
                 <Searchbar

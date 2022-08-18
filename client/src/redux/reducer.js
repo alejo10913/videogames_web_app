@@ -8,6 +8,7 @@ const initialState = {
   favorites: [],
   results: []
 };
+// ----------------------http://localhost:3001/videogames/-------------------------------
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -18,18 +19,22 @@ function rootReducer(state = initialState, action) {
         byfilter: action.payload,
       };
 
+//-----------------------http://localhost:3001/videogames/plataformas--------------------- 
     case "GET_PLATFORMS":
       return {
         ...state,
         allPlatforms: action.payload,
       };
 
+
+//----------------------http://localhost:3001/videogames/ID-------------------------------
     case "GAME_DETAIL":
       return {
         ...state,
         detail: action.payload,
       };
 
+//----------------------limpiar componente detail y result----------------------------------      
     case "CLEAN_DETAIL":
       return {
         ...state,
@@ -42,20 +47,21 @@ function rootReducer(state = initialState, action) {
           results: [],
         };
 
-
+//------------------------http://localhost:3001/videogames/name?name=nombrejuego
 
     case "GET_NAME_GAME":
       return {
         ...state,
         results: action.payload,
       };
-
+//----------------------------http://localhost:3001/genres----------------------
     case "GET_GENRES":
       return {
         ...state,
         allGenres: action.payload,
       };
 
+//------------------------------filtro base de datos o api------------------------
     case "FILTER_CREATED":
       const game = state.byfilter;
 
@@ -71,6 +77,8 @@ function rootReducer(state = initialState, action) {
         allVideoGames: createdFilter,
       };
 
+
+    //------------------------Filtro por genero-----------------------------------
     case "ORDER_BY_GENRE":
       const filterGen = state.byfilter.filter((game) => {
         if (!game.genres) return undefined;
@@ -82,6 +90,8 @@ function rootReducer(state = initialState, action) {
         allVideoGames: filterGen,
       };
 
+
+    //-----------------------orden alfabetico------------------------------------  
     case "ORDER_BY_NAME":
       let sortedArr =
         action.payload === "ascendente"?
@@ -108,6 +118,7 @@ function rootReducer(state = initialState, action) {
         allVideoGames: sortedArr,
       };
 
+//--------------------------ordenar por rating---------------------------
     case "ORDER_BY_RATING":
       let sortedRating =
         action.payload === "min"
@@ -130,11 +141,33 @@ function rootReducer(state = initialState, action) {
               return 0
             });
             console.log(sortedRating)
-      return {
-        ...state,
-        allVideoGames: sortedRating,
-      };
-      //if(input.platforms.includes(e.target.value))
+            return {
+              ...state,
+              allVideoGames: sortedRating,
+            };
+
+            
+//----------------------------Adicionar a favoritos--------------------------------------------------
+        case "ADD_FAVORITES":
+        let allfav = [...state.allVideoGames, ...state.results]
+        let fav = allfav.find((game) => game.id === action.payload)
+
+        if(state.favorites.includes(fav)){
+          //console.log("hola")
+          return{
+            ...state
+          }
+        }
+        else{
+          console.log(state.favorites)
+          return{
+            ...state,
+            favorites: [...state.favorites, fav]
+          
+          }
+        
+        }
+
 
       // case "ADD_FAVORITES":
       //   let allfav = [...state.allVideoGames, ...state.results]
@@ -145,26 +178,6 @@ function rootReducer(state = initialState, action) {
       //     ...state,
       //     favorites:  [...newFav]
       //   }
-
-      case "ADD_FAVORITES":
-      let allfav = [...state.allVideoGames, ...state.results]
-      let fav = allfav.find((game) => game.id === action.payload)
-
-      if(state.favorites.includes(fav)){
-        console.log("hola")
-        return{
-          ...state
-        }
-      }
-      else{
-        console.log(state.favorites)
-        return{
-          ...state,
-          favorites: [...state.favorites, fav]
-        
-        }
-       
-      }
         //let estado = state.favorites
         //if(!Object.keys(estado).includes(action.payload)){
         //if(!estado.includes(action.payload)){
@@ -177,7 +190,7 @@ function rootReducer(state = initialState, action) {
         // }
         // else if ((!estado.includes(fav)))
 
-
+//--------------------remover favoritos------------------------------------------------------
     
         case "REMOVE_FAVORITES":
           return{
@@ -185,6 +198,8 @@ function rootReducer(state = initialState, action) {
             favorites: state.favorites.filter((game) => game.id !== action.payload)
           }
 
+
+//--------------------------borrar juegos de base de datos------------------------------------          
           case "DELETE_GAME":
             return{
             ...state

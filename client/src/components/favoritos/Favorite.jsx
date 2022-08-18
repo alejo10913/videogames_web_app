@@ -12,8 +12,6 @@ export default function Favorite(){
     let fav = useSelector((state) => state.favorites )
     fav = [...new Set(fav)]
 
-  
-
 //     useEffect(()=> {
 //     },)
 //    console.log(fav)
